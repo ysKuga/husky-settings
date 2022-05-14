@@ -1,0 +1,8 @@
+{
+  "name": "husky-settings",
+  "version": "1.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "module-a"
+  ]
+}
