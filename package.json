@@ -2,6 +2,7 @@
   "name": "husky-settings",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "workspaces": [
     "module-a"
   ]
