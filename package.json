@@ -2,7 +2,15 @@
   "name": "husky-settings",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prepare": "sh ./scripts/prepare.sh"
+  },
   "workspaces": [
     "module-a"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1"
+  }
 }
