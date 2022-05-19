@@ -11,3 +11,6 @@ MODULE_A=$(git diff --name-only --cached | grep '^module-a/' | wc -l)
 if [ $MODULE_A -gt 0 ]; then
     sh ./module-a/scripts/pre-commit-msg.sh $1 $2
 fi
+
+# プロジェクト用フック
+sh ./scripts/prepare-commit-msg.sh $1 $2
