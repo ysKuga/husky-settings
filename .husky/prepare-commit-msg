@@ -9,7 +9,7 @@ MODULE_A=$(git diff --name-only --cached | grep '^module-a/' | wc -l)
 
 # module-a/ 配下に変更があった場合の処理
 if [ $MODULE_A -gt 0 ]; then
-    sh ./module-a/scripts/pre-commit-msg.sh $1 $2
+    sh ./module-a/scripts/prepare-commit-msg.sh $1 $2
 fi
 
 # プロジェクト用フック
