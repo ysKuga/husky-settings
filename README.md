@@ -8,7 +8,7 @@ husky の設定などを記述
 
 ブランチ名から `/` を区切り文字としてチケット番号を抽出してコミットメッセージに反映させる。
 
-- #1
+- [#1 husky の導入から prepare-commit-msg の設定まで](https://github.com/ysKuga/husky-settings/issues/1)
 
 ```sh
 $ git branch 
