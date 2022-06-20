@@ -28,7 +28,7 @@ commit) # use -c/-C/--amend
   if [ -n "$ticket_exists" ]; then
     # チケット番号をコミットメッセージの前に挿入する
     # `^${TICKET_PREFIX}\d+\s*` により別のチケット番号の入力を置き換え
-    perl -p -i.bak -e "s/^(${TICKET_PREFIX}\d+)?\s*/${ticket} /g" $COMMIT_MSG_FILE
+    perl -p -i.bak -e "if (1 .. 1) { s/\A(${TICKET_PREFIX}\d+)?\s*/${ticket} /g }" $COMMIT_MSG_FILE
     cat $COMMIT_MSG_FILE
   fi
   ;;
