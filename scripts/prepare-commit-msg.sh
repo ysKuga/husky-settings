@@ -33,10 +33,15 @@ commit) # use -c/-C/--amend
   :     # 何もしない
   ;;
 *)
-  # ブランチ名に $TICKET_PREFIX を含んだチケット番号が存在していた場合
-  if [ -n "$ticket_exists" ]; then
-    # チケット番号をコミットメッセージの前に挿入する
-    # `^${TICKET_PREFIX}\d+\s*` により別のチケット番号の入力を置き換え
+  # GitHub の Issue 番号が含まれていた場合
+  if [ -n "$github_issue" ]; then
+    # GitHub の場合は `#` に番号を付与
+    perl -p -i.bak -e "if (1 .. 1) { s/\A(${GITHUB_BRANCH_PREFIX}\d+)?\s*/${GITHUB_ISSUE_PREFIX}${ticket_number} /g }" $COMMIT_MSG_FILE
+    cat $COMMIT_MSG_FILE
+  fi
+  # Jira などのチケット番号が含まれていた場合
+  if [ -n "$ticket" ]; then
+    # GitHub の場合は `#` に番号を付与
     perl -p -i.bak -e "if (1 .. 1) { s/\A(${TICKET_PREFIX}\d+)?\s*/${ticket} /g }" $COMMIT_MSG_FILE
     cat $COMMIT_MSG_FILE
   fi
