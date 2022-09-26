@@ -3,9 +3,6 @@
 readonly COMMIT_MSG_FILE=$1
 readonly COMMIT_SOURCE=$2
 
-# ブランチ名を `/` で分割した場合に何列目がチケット番号であるかの指定
-# `{1 列目}/{2 列目}/{3 列目}/...`
-TICKET_COL=1
 # GitHub 向けのブランチのプレフィクス
 # `{issue-}123`
 GITHUB_BRANCH_PREFIX="issue-"
