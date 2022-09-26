@@ -6,9 +6,14 @@ readonly COMMIT_SOURCE=$2
 # ブランチ名を `/` で分割した場合に何列目がチケット番号であるかの指定
 # `{1 列目}/{2 列目}/{3 列目}/...`
 TICKET_COL=1
+# GitHub 向けのブランチのプレフィクス
+# `{issue-}123`
+GITHUB_BRANCH_PREFIX="issue-"
+# GitHub 向けのコミットログのプレフィクス
+GITHUB_ISSUE_PREFIX="#"
 # チケット番号のプレフィクス
 # `{ISS-}123`
-TICKET_PREFIX="#"
+TICKET_PREFIX="ISS-"
 
 # ブランチ名を取得
 # https://stackoverflow.com/questions/6245570/how-to-get-the-current-branch-name-in-git#answer-12142066
