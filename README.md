@@ -2,6 +2,16 @@
 
 husky の設定などを記述
 
+## 適用
+
+適用対象のディレクトリより `scripts/copy.sh` を実行する。
+
+当リポジトリと同一階層に対象がある場合
+
+```sh
+sh ../husky-settings/scripts/copy.sh
+```
+
 ## 内容
 
 ### prepare-commit-msg
@@ -24,12 +34,14 @@ $ git branch
 `scripts/prepare-commit-msg.sh` にて使用している以下の変数に指定する必要がある。
 
 ```sh
-# ブランチ名を `/` で分割した場合に何列目がチケット番号であるかの指定
-# `{1 列目}/{2 列目}/{3 列目}/...`
-TICKET_COL=1
+# GitHub 向けのブランチのプレフィクス
+# `{issue-}123`
+GITHUB_BRANCH_PREFIX="issue-"
+# GitHub 向けのコミットログのプレフィクス
+GITHUB_ISSUE_PREFIX="#"
 # チケット番号のプレフィクス
 # `{ISS-}123`
-TICKET_PREFIX="#"
+TICKET_PREFIX="ISS-"
 ```
 
 </details>
