@@ -32,8 +32,8 @@ commit) # use -c/-C/--amend
 *)
   # GitHub の Issue 番号が含まれていた場合
   if [ -n "$github_issue" ]; then
-    # GitHub の場合は `#` に番号を付与
-    perl -p -i.bak -e "if (1 .. 1) { s/\A(${GITHUB_BRANCH_PREFIX}\d+)?\s*/${GITHUB_ISSUE_PREFIX}${ticket_number} /g }" $COMMIT_MSG_FILE
+    # GitHub の場合は `#` に番号を付与 (置換元は `#{Issue 番号}`)
+    perl -p -i.bak -e "if (1 .. 1) { s/\A(#\d+)?\s*/${GITHUB_ISSUE_PREFIX}${ticket_number} /g }" $COMMIT_MSG_FILE
     cat $COMMIT_MSG_FILE
   fi
   # Jira などのチケット番号が含まれていた場合
