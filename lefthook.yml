@@ -14,6 +14,7 @@
 #
 # pre-commit:
 #   parallel: true
+#   # pre-commit は staged の対象となるファイルがないと起動しないかもしれない
 #   commands:
 #     eslint:
 #       root: module-a # モノレポなど基準となるパスを指定
