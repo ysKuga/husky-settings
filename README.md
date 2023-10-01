@@ -12,6 +12,14 @@ husky の設定などを記述
 sh ../husky-settings/scripts/copy.sh
 ```
 
+当リポジトリと同一階層に対象があり Yarn Workspaces を使用している場合
+
+- Yarn Workspaces 用の調整が必要
+
+```sh
+sh ../husky-settings/scripts/copy-yarn-workspaces.sh
+```
+
 ## 内容
 
 ### prepare-commit-msg
