@@ -38,4 +38,4 @@
 prepare-commit-msg:
   commands:
     commit-prefix:
-      run: sh ./scripts/prepare-commit-msg.sh {0}
+      run: sh ./scripts/husky/prepare-commit-msg/commit-prefix.sh {0}
