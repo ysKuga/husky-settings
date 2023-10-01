@@ -16,13 +16,37 @@ TICKET_PREFIX="ISS-"
 # https://stackoverflow.com/questions/6245570/how-to-get-the-current-branch-name-in-git#answer-12142066
 branch=$(git rev-parse --abbrev-ref HEAD)
 # Issue, チケットの番号
-ticket_number=$(echo $branch | perl -p -e "s/(($GITHUB_BRANCH_PREFIX|$TICKET_PREFIX)(\d+))?.*/\$3/g")
+ticket_number=$(echo $branch | perl -p -e "s/
+  .* # チケット番号前方の文字列
+  (
+    # GitHub かタスク管理ツールのプレフィクス
+    ($GITHUB_BRANCH_PREFIX|$TICKET_PREFIX)
+    (\d+)
+  )
+  .* # チケット番号後方の文字列
+  |.* # チケット番号を含まない場合すべて置換
+/\$3/gx")
 # GitHub 向けのブランチ中の Issue
-github_issue=$(echo $branch | perl -p -e "s/(($GITHUB_BRANCH_PREFIX)(\d+))?.*/\$1/g")
+github_issue=$(echo $branch | perl -p -e "s/
+  .*
+  (($GITHUB_BRANCH_PREFIX)(\d+))
+  .*
+  |.*
+/\$1/gx")
 # Jira などのチケット番号
-ticket=$(echo $branch | perl -p -e "s/(($TICKET_PREFIX)(\d+))?.*/\$1/g")
+ticket=$(echo $branch | perl -p -e "s/
+  .*
+  (($TICKET_PREFIX)(\d+))
+  .*
+  |.*
+/\$1/gx")
 # ブランチ自体にチケット番号が含まれているかの確認
-ticket_exists=$(echo $ticket | perl -p -e "s/^(${TICKET_PREFIX})?.*/\$1/g")
+ticket_exists=$(echo $ticket | perl -p -e "s/
+  .*
+  (${TICKET_PREFIX})
+  .*
+  |.*
+/\$1/gx")
 
 # https://zenn.dev/choimake/articles/e0865a4fac37ab
 case "${COMMIT_SOURCE}" in
