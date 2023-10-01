@@ -45,3 +45,11 @@ TICKET_PREFIX="ISS-"
 ```
 
 </details>
+
+## 使用ライブラリ
+
+### [evilmartians/lefthook](https://github.com/evilmartians/lefthook)
+
+husky のスクリプトの実行タイミングの調整に使用
+
+- `lefthook.yml` で変更ファイルのパスにより実行内容を指定する。
