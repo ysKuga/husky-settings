@@ -37,5 +37,8 @@
 
 prepare-commit-msg:
   commands:
+    # main などへのコミット抑止 (`--allow-empty` を考慮してこちらに設置している)
+    prevent-main:
+      run: bash ./scripts/husky/prepare-commit-msg/prevent-main.sh {0}
     commit-prefix:
       run: sh ./scripts/husky/prepare-commit-msg/commit-prefix.sh {0}
