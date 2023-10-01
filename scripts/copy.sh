@@ -22,8 +22,7 @@ cp $SOURCE_DIR/.husky/prepare-commit-msg $TARGET_DIR/.husky/.
 
 # scripts 配下の移動
 cp $SOURCE_DIR/scripts/prepare.sh $TARGET_DIR/scripts/prepare.sh
-cp $SOURCE_DIR/scripts/pre-commit.sh $TARGET_DIR/scripts/pre-commit.sh
-cp $SOURCE_DIR/scripts/prepare-commit-msg.sh $TARGET_DIR/scripts/prepare-commit-msg.sh
+cp -r $SOURCE_DIR/scripts/husky/ $TARGET_DIR/scripts/.
 
 echo "以下を実行してください。"
 echo ""
