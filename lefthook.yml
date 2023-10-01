@@ -16,6 +16,7 @@
 #   parallel: true
 #   commands:
 #     eslint:
+#       root: module-a # モノレポなど基準となるパスを指定
 #       glob: "*.{js,ts,jsx,tsx}"
 #       run: yarn eslint {staged_files}
 #     rubocop:
@@ -33,3 +34,8 @@
 #       runner: node
 #     "any.go":
 #       runner: go run
+
+prepare-commit-msg:
+  commands:
+    commit-prefix:
+      run: sh ./scripts/prepare-commit-msg.sh {0}
