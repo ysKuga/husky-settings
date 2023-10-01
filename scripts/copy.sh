@@ -16,6 +16,9 @@ TARGET_DIR=$(pwd)
 mkdir -p $TARGET_DIR/.husky
 mkdir -p $TARGET_DIR/scripts
 
+# lefthook.yml の移動
+cp $SOURCE_DIR/lefthook.yml $TARGET_DIR/lefthook.yml
+
 # .husky 配下の移動
 cp $SOURCE_DIR/.husky/pre-commit $TARGET_DIR/.husky/.
 cp $SOURCE_DIR/.husky/prepare-commit-msg $TARGET_DIR/.husky/.
