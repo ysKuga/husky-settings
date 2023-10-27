@@ -30,6 +30,7 @@ cp -r $SOURCE_DIR/scripts/husky/ $TARGET_DIR/scripts/.
 echo "以下を実行してください。"
 echo ""
 echo "- npx husky install"
+echo "- npx lefthook install"
 echo ""
 echo "以下の記述を package.json の scripts に追加してください。"
 echo ""
