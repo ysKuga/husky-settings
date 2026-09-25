@@ -43,3 +43,16 @@ prepare-commit-msg:
       run: bash ./scripts/husky/prepare-commit-msg/prevent-main.sh {0}
     commit-prefix:
       run: sh ./scripts/husky/prepare-commit-msg/commit-prefix.sh {0}
+
+pre-push:
+  commands:
+    # main などへの push 抑止 (stdin で push 先の ref を受け取る)
+    prevent-main:
+      run: bash ./scripts/husky/pre-push/prevent-main.sh
+      use_stdin: true
+
+post-merge:
+  commands:
+    # マージされたブランチの削除
+    prune-gone-branches:
+      run: bash ./scripts/husky/post-merge/prune-gone-branches.sh
