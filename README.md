@@ -54,6 +54,18 @@ TICKET_PREFIX="ISS-"
 
 </details>
 
+### pre-push
+
+`main` への push を抑止する。
+
+- `scripts/husky/pre-push/prevent-main.sh` の `forbidden` に `|` 区切りで対象ブランチを指定する。
+
+### post-merge
+
+リモートで削除済のブランチ（`: gone]`）をローカルからも削除する。
+
+- 削除判定に `git fetch --prune`（`git pull -p` など）でのリモート追跡ブランチの削除が必要
+
 ## 使用ライブラリ
 
 ### [evilmartians/lefthook](https://github.com/evilmartians/lefthook)
